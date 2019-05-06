@@ -1,7 +1,9 @@
 import React from 'react';
 import { Alert, StyleSheet, Text, View } from 'react-native';
+import Level1 from './src/level1';
+import Level2 from './src/level2';
 
-const levels = [];
+const levels = [Level1, Level2];
 
 export default class App extends React.Component {
 	constructor(props) {
