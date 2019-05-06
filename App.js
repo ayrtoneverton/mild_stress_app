@@ -1,14 +1,22 @@
 import React from 'react';
 import { Alert, StyleSheet, Text, View } from 'react-native';
+import FS from 'react-native-fs';
 import Level1 from './src/level1';
 import Level2 from './src/level2';
 
 const levels = [Level1, Level2];
+const fileLevel = FS.ExternalDirectoryPath +'/ms-lv';
 
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { level: 1 };
+		FS.readFile(fileLevel)
+		.then((res => {
+			const lv = parseInt(res);
+			this.setState({ level: lv, saveLevel: lv });
+		}).bind(this))
+		.catch(err => {});
+		this.state = { level: 1, saveLevel: 1 };
 		this.nextLevel = this.nextLevel.bind(this);
 		this.prevLevel = this.prevLevel.bind(this);
 	}
@@ -23,7 +31,12 @@ export default class App extends React.Component {
 			Alert.alert('Finish', 'Parabéns, conseguiu chegar ao fim.');
 	}
 	nextLevel(){
-		this.setState({ level: this.state.level + 1 });
+		const lv = this.state.level + 1;
+		if(lv > this.state.saveLevel){
+			this.setState({ level: lv, saveLevel: lv });
+			FS.writeFile(fileLevel, lv.toString());
+		}else
+			this.setState({ level: lv });
 	}
 	prevLevel(){
 		if(this.state.level > 1)
