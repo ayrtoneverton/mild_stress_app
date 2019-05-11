@@ -1,7 +1,8 @@
 import React from 'react';
+import AbstractLevel from './AbstractLevel';
 import { StyleSheet, View } from 'react-native';
 
-export default class Level2 extends React.Component {
+export default class Level2 extends AbstractLevel {
 	constructor(props) {
 		super(props);
 		this.state = { count: 1 };
@@ -18,7 +19,7 @@ export default class Level2 extends React.Component {
 			this['item-'+ (this.totalBlocks - order)].setNativeProps({style: styles.blockCheck});
 			this.setState({ count: order + 1 });
 			if(order == this.totalBlocks)
-				this.props.nextLevel();
+				this.nextLevel();
 		}else{
 			for (let i = (this.totalBlocks - this.state.count); i < this.totalBlocks; i++) {
 				this['item-'+ i].setNativeProps({style: styles.block});

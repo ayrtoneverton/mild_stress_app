@@ -1,10 +1,11 @@
 import React from 'react';
+import AbstractLevel from './AbstractLevel';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 
-export default class Level1 extends React.Component {
+export default class Level1 extends AbstractLevel {
 	checkText(text){
 		if(text.toLowerCase().replace(/[^a-z]/g,'') == 'bemvindo')
-			this.props.nextLevel();
+			this.nextLevel();
 	}
 	render() {
 		return (

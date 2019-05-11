@@ -1,10 +1,11 @@
 import React from 'react';
 import { Alert, StyleSheet, Text, View } from 'react-native';
 import FS from 'react-native-fs';
-import Level1 from './src/level1';
-import Level2 from './src/level2';
+import Level1 from './src/Level1';
+import Level2 from './src/Level2';
+import EndGame from './src/EndGame';
 
-const levels = [Level1, Level2];
+const levels = [Level1, Level2, EndGame];
 const fileLevel = FS.ExternalDirectoryPath +'/ms-lv';
 
 export default class App extends React.Component {
@@ -25,10 +26,7 @@ export default class App extends React.Component {
 	}
 	getLevel(){
 		const Level = levels[this.state.level - 1];
-		if(Level)
-			return <Level nextLevel={this.nextLevel}/>;
-		else
-			Alert.alert('Finish', 'Parabéns, conseguiu chegar ao fim.');
+		return <Level onNextLevel={this.nextLevel}/>;
 	}
 	nextLevel(){
 		const lv = this.state.level + 1;
