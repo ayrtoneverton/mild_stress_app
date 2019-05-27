@@ -1,5 +1,5 @@
 import React from 'react';
-import AbstractLevel from './AbstractLevel';
+import AbstractLevel from './AbstractLevel.js';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 
 export default class Level1 extends AbstractLevel {

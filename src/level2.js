@@ -1,5 +1,5 @@
 import React from 'react';
-import AbstractLevel from './AbstractLevel';
+import AbstractLevel from './AbstractLevel.js';
 import { StyleSheet, View } from 'react-native';
 
 export default class Level2 extends AbstractLevel {
