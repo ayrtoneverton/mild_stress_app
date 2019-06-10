@@ -3,8 +3,7 @@
 	"scripts": {
 		"start": "react-native start",
 		"android": "react-native run-android",
-		"ios": "react-native run-ios",
-		"post-clone": "rm -rf node_modules ; npm install"
+		"ios": "react-native run-ios"
 	},
 	"dependencies": {
 		"@babel/runtime": "^7.4.3",
