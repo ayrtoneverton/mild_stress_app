@@ -1,10 +1,10 @@
 import React from 'react';
 import { Alert, StyleSheet, Text, View } from 'react-native';
 import FS from 'react-native-fs';
-import Level1 from './src/Level1.js';
-import Level2 from './src/Level2.js';
-import Level3 from './src/Level3.js';
-import EndGame from './src/EndGame.js';
+import Level1 from './src/Level1';
+import Level2 from './src/Level2';
+import Level3 from './src/Level3';
+import EndGame from './src/EndGame';
 
 const levels = [Level1, Level2, Level3, EndGame];
 const fileLevel = FS.ExternalDirectoryPath +'/ms-lv';
